@@ -1,0 +1,57 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+ENV/
+env/
+.venv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Project specific
+# Keep canonical database in repo for users to use directly
+# data/canonical_awards.csv
+# data/author_aliases.json
+data/proposed_changes_*.json
+data/proposed_changes_*.txt
+logs/*.log
+
+# Calibre metadata backups (users will have many of these)
+metadata.db.backup-*
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# Distribution
+*.tar.gz
+*.zip
+*.log
