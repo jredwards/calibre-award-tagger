@@ -132,6 +132,14 @@ def normalize_data(df: pd.DataFrame) -> pd.DataFrame:
     """Normalize book titles and author names."""
     logger.info("Normalizing award data")
     df = df.copy()
+
+    # Drop rows where Wikidata returned a Q-ID instead of a label (data quality issue
+    # caused by P50/title entities with no English label, or photo entities mis-linked).
+    qid = df["author"].str.match(r"^Q\d+$", na=False) | df["title"].str.match(r"^Q\d+$", na=False)
+    if qid.any():
+        logger.warning(f"Dropping {qid.sum()} records with Q-ID author/title: {df[qid][['prize','year','title','author']].to_dict('records')}")
+        df = df[~qid]
+
     df["title"] = df["title"].apply(normalize_title)
 
     normalizer = AuthorNormalizer()

@@ -57,8 +57,9 @@ def get_calibre_books() -> List[CalibreBook]:
             check=True
         )
 
-        # Parse JSON output
-        books_data = json.loads(result.stdout)
+        # Parse JSON output — Calibre 9.7+ appends "Integration status: True"
+        # after the JSON array, so use raw_decode to parse only the first value.
+        books_data, _ = json.JSONDecoder().raw_decode(result.stdout.strip())
 
         books = []
         for book_data in books_data:
@@ -105,7 +106,7 @@ def get_book_tags(book_id: int) -> List[str]:
             check=True
         )
 
-        books_data = json.loads(result.stdout)
+        books_data, _ = json.JSONDecoder().raw_decode(result.stdout.strip())
         if books_data:
             return _normalize_tags(books_data[0].get('tags'))
 
@@ -260,10 +261,27 @@ def get_library_path() -> Optional[Path]:
             if library_path.exists():
                 return library_path
 
-        # Check default locations by platform
-        home = Path.home()
+        # Read Calibre's own preferences to find the current library path.
+        # gui.json stores library_usage_stats: {path: use_count, ...}
+        import json
+        appdata = os.environ.get('APPDATA', '')
+        gui_json = Path(appdata) / 'calibre' / 'gui.json'
+        if gui_json.exists():
+            try:
+                prefs = json.loads(gui_json.read_text(encoding='utf-8', errors='replace'))
+                usage = prefs.get('library_usage_stats', {})
+                if usage:
+                    # Pick the most-used library
+                    best = max(usage, key=lambda p: usage[p])
+                    candidate = Path(best)
+                    if (candidate / 'metadata.db').exists():
+                        logger.info(f"Found Calibre library from preferences: {candidate}")
+                        return candidate
+            except Exception as e:
+                logger.warning(f"Could not read Calibre preferences: {e}")
 
-        # Try common default locations
+        # Fall back to common default locations
+        home = Path.home()
         default_locations = [
             home / "Calibre Library",
             home / "Documents" / "Calibre Library",
@@ -271,8 +289,7 @@ def get_library_path() -> Optional[Path]:
         ]
 
         for location in default_locations:
-            metadata_db = location / "metadata.db"
-            if metadata_db.exists():
+            if (location / "metadata.db").exists():
                 logger.info(f"Found Calibre library at: {location}")
                 return location
 

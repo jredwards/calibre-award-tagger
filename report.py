@@ -156,7 +156,7 @@ def save_report(matches: List[BookMatch], json_path: Path, text_path: Path):
     # Generate and save text report
     text_report = generate_text_report(matches)
     text_path.parent.mkdir(exist_ok=True)
-    with open(text_path, 'w') as f:
+    with open(text_path, 'w', encoding='utf-8') as f:
         f.write(text_report)
 
     logger.info(f"Text report saved to {text_path}")

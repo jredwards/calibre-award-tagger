@@ -1,14 +1,13 @@
 prize,category,year,status,title,author
 Hugo,Best Novel,2025,Winner,The Tainted Cup,Robert Jackson Bennett
-Hugo,Best Novel,2024,Winner,Q123300220,Emily Tesh
 Hugo,Best Novel,2023,Winner,Nettle & Bone,Ursula Vernon
 Hugo,Best Novel,2022,Winner,A Desolation Called Peace,Arkady Martine
 Hugo,Best Novel,2021,Winner,Network Effect,Martha Wells
 Hugo,Best Novel,2020,Winner,A Memory Called Empire,Arkady Martine
 Hugo,Best Novel,2019,Winner,The Calculating Stars,Mary Robinette Kowal
-Hugo,Best Novel,2018,Winner,The Stone Sky,Q2427544
-Hugo,Best Novel,2017,Winner,The Obelisk Gate,Q2427544
-Hugo,Best Novel,2016,Winner,The Fifth Season,Q2427544
+Hugo,Best Novel,2018,Winner,The Stone Sky,N. K. Jemisin
+Hugo,Best Novel,2017,Winner,The Obelisk Gate,N. K. Jemisin
+Hugo,Best Novel,2016,Winner,The Fifth Season,N. K. Jemisin
 Hugo,Best Novel,2015,Winner,The Three-Body Problem,Liu Cixin
 Hugo,Best Novel,2014,Winner,Ancillary Justice,Ann Leckie
 Hugo,Best Novel,2013,Winner,Redshirts,John Scalzi
@@ -25,7 +24,7 @@ Hugo,Best Novel,2005,Winner,Jonathan Strange & Mr Norrell,Susanna Clarke
 Hugo,Best Novel,2004,Winner,Paladin of Souls,Lois McMaster Bujold
 Hugo,Best Novel,2003,Winner,Hominids,Robert J. Sawyer
 Hugo,Best Novel,2002,Winner,American Gods,Neil Gaiman
-Hugo,Best Novel,2001,Winner,Harry Potter and the Goblet of Fire,Q34660
+Hugo,Best Novel,2001,Winner,Harry Potter and the Goblet of Fire,Kathleen Rowling
 Hugo,Best Novel,2000,Winner,A Deepness in the Sky,Vernor Vinge
 Hugo,Best Novel,1999,Winner,To Say Nothing of the Dog,Connie Willis
 Hugo,Best Novel,1998,Winner,Forever Peace,Joe Haldeman
@@ -77,26 +76,26 @@ Hugo,Best Novel,1955,Winner,They'd Rather Be Right,Mark Clifton
 Hugo,Best Novel,1953,Winner,The Demolished Man,Alfred Bester
 Hugo,Best Novel,2025,Nominee,The Ministry of Time,Kaliane Bradley
 Hugo,Best Novel,2025,Nominee,Alien Clay,Adrian Tchaikovsky
-Hugo,Best Novel,2025,Nominee,Someone You Can Build a Nest In,Q107719145
+Hugo,Best Novel,2025,Nominee,Someone You Can Build a Nest In,John Wiswell
 Hugo,Best Novel,2025,Nominee,A Sorceress Comes to Call,Ursula Vernon
 Hugo,Best Novel,2024,Nominee,Translation State,Ann Leckie
 Hugo,Best Novel,2024,Nominee,Starter Villain,John Scalzi
 Hugo,Best Novel,2024,Nominee,The Adventures of Amina al-Sirafi,Shannon Ali Chakraborty
-Hugo,Best Novel,2024,Nominee,Witch King,Martha Wells
 Hugo,Best Novel,2024,Nominee,The Saint of Bright Doors,Vajra Chandrasekera
+Hugo,Best Novel,2024,Nominee,Witch King,Martha Wells
 Hugo,Best Novel,2023,Nominee,The Kaiju Preservation Society,John Scalzi
 Hugo,Best Novel,2023,Nominee,Nona the Ninth,Tamsyn Muir
 Hugo,Best Novel,2023,Nominee,Legends & Lattes,Travis Baldree
-Hugo,Best Novel,2023,Nominee,The Daughter of Doctor Moreau,Silvia Moreno-Garcia
 Hugo,Best Novel,2023,Nominee,The Spare Man,Mary Robinette Kowal
+Hugo,Best Novel,2023,Nominee,The Daughter of Doctor Moreau,Silvia Moreno-Garcia
 Hugo,Best Novel,2022,Nominee,"The Galaxy, and the Ground Within",Becky Chambers
-Hugo,Best Novel,2022,Nominee,Project Hail Mary,Q18590295
+Hugo,Best Novel,2022,Nominee,Project Hail Mary,Andy Weir
 Hugo,Best Novel,2022,Nominee,She Who Became the Sun,Shelley Parker-Chan
 Hugo,Best Novel,2022,Nominee,Light From Uncommon Stars,Ryka Aoki
 Hugo,Best Novel,2022,Nominee,A Master of Djinn,P. Djèlí Clark
-Hugo,Best Novel,2021,Nominee,The City We Became,Q2427544
-Hugo,Best Novel,2021,Nominee,Piranesi,Susanna Clarke
+Hugo,Best Novel,2021,Nominee,The City We Became,N. K. Jemisin
 Hugo,Best Novel,2021,Nominee,Harrow the Ninth,Tamsyn Muir
+Hugo,Best Novel,2021,Nominee,Piranesi,Susanna Clarke
 Hugo,Best Novel,2021,Nominee,The Relentless Moon,Mary Robinette Kowal
 Hugo,Best Novel,2021,Nominee,Black Sun,Rebecca Roanhorse
 Hugo,Best Novel,2020,Nominee,The Light Brigade,Kameron Hurley
@@ -135,14 +134,13 @@ Hugo,Best Novel,2013,Nominee,Captain Vorpatril's Alliance,Lois McMaster Bujold
 Hugo,Best Novel,2013,Nominee,Throne of the Crescent Moon,Saladin Ahmed
 Hugo,Best Novel,2013,Nominee,Blackout,Seanan McGuire
 Hugo,Best Novel,2012,Nominee,A Dance with Dragons,George R. R. Martin
-Hugo,Best Novel,2012,Nominee,Q3052025,China Miéville
 Hugo,Best Novel,2012,Nominee,Deadline,Seanan McGuire
 Hugo,Best Novel,2012,Nominee,Leviathan Wakes,Daniel Abraham
 Hugo,Best Novel,2012,Nominee,Leviathan Wakes,James S. A. Corey
 Hugo,Best Novel,2012,Nominee,Leviathan Wakes,Ty Franck
 Hugo,Best Novel,2011,Nominee,The Dervish House,Ian McDonald
 Hugo,Best Novel,2011,Nominee,Cryoburn,Lois McMaster Bujold
-Hugo,Best Novel,2011,Nominee,The Hundred Thousand Kingdoms,Q2427544
+Hugo,Best Novel,2011,Nominee,The Hundred Thousand Kingdoms,N. K. Jemisin
 Hugo,Best Novel,2011,Nominee,Feed,Seanan McGuire
 Hugo,Best Novel,2010,Nominee,Boneshaker,Cherie Priest
 Hugo,Best Novel,2010,Nominee,Palimpsest,Catherynne M. Valente
@@ -169,11 +167,11 @@ Hugo,Best Novel,2005,Nominee,Iron Council,China Miéville
 Hugo,Best Novel,2005,Nominee,Iron Sunrise,Charles Stross
 Hugo,Best Novel,2005,Nominee,River of Gods,Ian McDonald
 Hugo,Best Novel,2004,Nominee,Blind Lake,Robert Charles Wilson
-Hugo,Best Novel,2004,Nominee,Singularity Sky,Charles Stross
 Hugo,Best Novel,2004,Nominee,Ilium,Dan Simmons
+Hugo,Best Novel,2004,Nominee,Singularity Sky,Charles Stross
 Hugo,Best Novel,2004,Nominee,Humans,Robert J. Sawyer
-Hugo,Best Novel,2003,Nominee,The Scar,China Miéville
 Hugo,Best Novel,2003,Nominee,Kiln People,David Brin
+Hugo,Best Novel,2003,Nominee,The Scar,China Miéville
 Hugo,Best Novel,2003,Nominee,The Years of Rice and Salt,Kim Stanley Robinson
 Hugo,Best Novel,2003,Nominee,Bones of the Earth,Michael Swanwick
 Hugo,Best Novel,2002,Nominee,The Chronoliths,Robert Charles Wilson
@@ -185,7 +183,7 @@ Hugo,Best Novel,2001,Nominee,A Storm of Swords,George R. R. Martin
 Hugo,Best Novel,2001,Nominee,Calculating God,Robert J. Sawyer
 Hugo,Best Novel,2001,Nominee,Midnight Robber,Nalo Hopkinson
 Hugo,Best Novel,2001,Nominee,The Sky Road,Ken MacLeod
-Hugo,Best Novel,2000,Nominee,Harry Potter and the Prisoner of Azkaban,Q34660
+Hugo,Best Novel,2000,Nominee,Harry Potter and the Prisoner of Azkaban,Kathleen Rowling
 Hugo,Best Novel,2000,Nominee,Cryptonomicon,Neal Stephenson
 Hugo,Best Novel,2000,Nominee,Darwin's Radio,Greg Bear
 Hugo,Best Novel,2000,Nominee,A Civil Campaign,Lois McMaster Bujold
@@ -223,8 +221,8 @@ Hugo,Best Novel,1992,Nominee,All the Weyrs of Pern,Anne McCaffrey
 Hugo,Best Novel,1992,Nominee,Bone Dance,Emma Bull
 Hugo,Best Novel,1991,Nominee,The Fall of Hyperion,Dan Simmons
 Hugo,Best Novel,1991,Nominee,Queen of Angels,Greg Bear
-Hugo,Best Novel,1991,Nominee,Earth,David Brin
 Hugo,Best Novel,1991,Nominee,The Quiet Pools,Michael P. Kube-McDowell
+Hugo,Best Novel,1991,Nominee,Earth,David Brin
 Hugo,Best Novel,1990,Nominee,Prentice Alvin,Orson Scott Card
 Hugo,Best Novel,1990,Nominee,A Fire in the Sun,George Alec Effinger
 Hugo,Best Novel,1990,Nominee,Grass,Sheri S. Tepper
@@ -281,8 +279,8 @@ Hugo,Best Novel,1978,Nominee,The Forbidden Tower,Marion Zimmer Bradley
 Hugo,Best Novel,1978,Nominee,Time Storm,Gordon R. Dickson
 Hugo,Best Novel,1977,Nominee,Children of Dune,Frank Herbert
 Hugo,Best Novel,1977,Nominee,Man Plus,Frederik Pohl
-Hugo,Best Novel,1977,Nominee,Shadrach in the Furnace,Robert Silverberg
 Hugo,Best Novel,1977,Nominee,Mindbridge,Joe Haldeman
+Hugo,Best Novel,1977,Nominee,Shadrach in the Furnace,Robert Silverberg
 Hugo,Best Novel,1976,Nominee,Doorways in the Sand,Roger Zelazny
 Hugo,Best Novel,1976,Nominee,The Stochastic Man,Robert Silverberg
 Hugo,Best Novel,1976,Nominee,The Computer Connection,Alfred Bester

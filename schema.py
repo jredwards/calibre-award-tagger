@@ -52,7 +52,7 @@ def format_award_tag(prize: str, category: str, status: str) -> str:
     # For most awards, don't include category in tag
     # For Agatha, include the category
     if prize == "Agatha":
-        category_suffix = f", {category}"
+        category_suffix = f" - {category}"
     else:
         category_suffix = ""
 

@@ -8,6 +8,12 @@ import argparse
 import logging
 import sys
 from pathlib import Path
+
+# Ensure stdout/stderr handle Unicode on Windows (e.g. author names with diacritics)
+if hasattr(sys.stdout, 'reconfigure'):
+    sys.stdout.reconfigure(encoding='utf-8', errors='replace')
+if hasattr(sys.stderr, 'reconfigure'):
+    sys.stderr.reconfigure(encoding='utf-8', errors='replace')
 from datetime import datetime
 from typing import Optional, Tuple, List
 

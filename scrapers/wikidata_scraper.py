@@ -4,13 +4,17 @@ Provides structured winner/nominee data with clear status distinction.
 """
 
 import logging
+import re
 import time
-from typing import List, Optional
+from typing import List, Optional, Dict
 import pandas as pd
 from SPARQLWrapper import SPARQLWrapper, JSON
 from schema import AwardRecord, AwardStatus
 
 logger = logging.getLogger(__name__)
+
+# Session cache for resolved Q-ID labels so we don't re-query the same entity.
+_qid_label_cache: Dict[str, Optional[str]] = {}
 
 # Wikidata SPARQL endpoint
 WIKIDATA_ENDPOINT = "https://query.wikidata.org/sparql"
@@ -339,6 +343,57 @@ def build_direct_nominees_query(
     return query
 
 
+def _resolve_qid_label(qid: str) -> Optional[str]:
+    """
+    Resolve a Wikidata Q-ID to a human-readable English name.
+
+    Some entities (e.g. recently created author pages) have no English rdfs:label
+    in Wikidata, so the label service falls back to the raw Q-ID. This function
+    queries P735 (given name) + P734 (family name) — both of which usually carry
+    English labels even when the top-level entity doesn't — and concatenates them.
+
+    Results are cached in _qid_label_cache for the lifetime of the process so
+    each unique Q-ID is only fetched once per scrape run.
+    """
+    if qid in _qid_label_cache:
+        return _qid_label_cache[qid]
+
+    logger.info(f"Resolving Q-ID label: {qid}")
+    query = f"""
+    SELECT ?nameEn ?givenName ?familyName WHERE {{
+      OPTIONAL {{ wd:{qid} rdfs:label ?nameEn . FILTER(LANG(?nameEn) = "en") }}
+      OPTIONAL {{
+        wd:{qid} wdt:P735 ?gn .
+        ?gn rdfs:label ?givenName .
+        FILTER(LANG(?givenName) = "en")
+      }}
+      OPTIONAL {{
+        wd:{qid} wdt:P734 ?fn .
+        ?fn rdfs:label ?familyName .
+        FILTER(LANG(?familyName) = "en")
+      }}
+    }} LIMIT 5
+    """
+    try:
+        bindings_result = execute_sparql_query(query)
+        for b in bindings_result:
+            name_en = b.get('nameEn', {}).get('value')
+            if name_en:
+                _qid_label_cache[qid] = name_en
+                return name_en
+            given = b.get('givenName', {}).get('value', '')
+            family = b.get('familyName', {}).get('value', '')
+            if given or family:
+                name = f"{given} {family}".strip()
+                _qid_label_cache[qid] = name
+                return name
+    except Exception as e:
+        logger.warning(f"Failed to resolve Q-ID {qid}: {e}")
+
+    _qid_label_cache[qid] = None
+    return None
+
+
 def parse_sparql_results(bindings: List[dict], prize_name: str, category: str, status: str) -> List[AwardRecord]:
     """
     Parse SPARQL query results into AwardRecord dictionaries.
@@ -362,28 +417,31 @@ def parse_sparql_results(bindings: List[dict], prize_name: str, category: str, s
                 continue
             year = int(year_str)
 
-            # Extract work title
-            # Try work first, then recipient (in case recipient is the work)
-            title = None
-            if 'workLabel' in binding:
-                title = binding['workLabel'].get('value')
+            # Extract title (workLabel, then recipientLabel as fallback)
+            title = binding.get('workLabel', {}).get('value')
             if not title or title == 'None':
-                if 'recipientLabel' in binding:
-                    recipient_label = binding['recipientLabel'].get('value')
-                    # If recipient looks like a book title (not a person name)
-                    # we'll use it as the title
-                    title = recipient_label
-
+                title = binding.get('recipientLabel', {}).get('value')
             if not title or title == 'None':
                 continue
+            if re.match(r'^Q\d+$', title):
+                resolved = _resolve_qid_label(title)
+                if resolved:
+                    title = resolved
+                else:
+                    logger.debug(f"Skipping record: unresolvable title Q-ID {title}")
+                    continue
 
             # Extract author
-            author = None
-            if 'authorLabel' in binding:
-                author = binding['authorLabel'].get('value')
+            author = binding.get('authorLabel', {}).get('value')
             if not author or author == 'None':
-                # If no author found, skip this record
                 continue
+            if re.match(r'^Q\d+$', author):
+                resolved = _resolve_qid_label(author)
+                if resolved:
+                    author = resolved
+                else:
+                    logger.debug(f"Skipping record: unresolvable author Q-ID {author} for '{title}'")
+                    continue
 
             records.append({
                 'prize': prize_name,
