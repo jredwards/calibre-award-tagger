@@ -32,6 +32,7 @@ AWARD_SCRAPERS = {
     "agatha": ("scrapers.agatha_scraper", "scrape_agatha_awards", None),
     "national_book_award": ("scrapers.nba_scraper", "scrape_nba_fiction", None),
     "giller": ("scrapers.giller_scraper", "scrape_giller_prize", None),
+    "pulitzer": ("scrapers.pulitzer_scraper", "scrape_pulitzer_fiction", None),
 }
 
 
@@ -271,7 +272,7 @@ if __name__ == "__main__":
         print("Available awards:")
         for key, cached in list_awards_with_cache_status():
             cache_file = get_cache_file(key)
-            cached_marker = "✓ cached" if cached else "✗ not cached"
+            cached_marker = "[cached]" if cached else "[not cached]"
             print(f"  {key:25s} {cached_marker} ({cache_file})")
         raise SystemExit(0)
 

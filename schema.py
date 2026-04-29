@@ -109,5 +109,10 @@ AWARDS_CONFIG = {
         "name": "Agatha",
         "category_filter": None,  # Include all categories
         "url": "https://en.wikipedia.org/wiki/Agatha_Award"
+    },
+    "pulitzer": {
+        "name": "Pulitzer",
+        "category_filter": ["Fiction"],
+        "url": "https://en.wikipedia.org/wiki/Pulitzer_Prize_for_Fiction"
     }
 }
